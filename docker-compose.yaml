@@ -9,7 +9,7 @@ services:
       - "2003:2003"
     networks:
       testnet:
-        ipv4_address: 172.25.25.11
+        ipv4_address: 172.25.25.13
 
   carbonapi:
     build:
@@ -20,7 +20,7 @@ services:
       - "8081:8081"
     networks:
       testnet:
-        ipv4_address: 172.25.25.12
+        ipv4_address: 172.25.25.11
     links:
       - zipper
 
@@ -35,7 +35,7 @@ services:
       - "8000:8000"
     networks:
       testnet:
-        ipv4_address: 172.25.25.13
+        ipv4_address: 172.25.25.12
     links:
       - go-carbon
 
