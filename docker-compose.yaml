@@ -7,6 +7,9 @@ services:
       context: .
     ports:
       - "2003:2003"
+    networks:
+      testnet:
+        ipv4_address: 172.25.25.11
 
   carbonapi:
     build:
@@ -15,6 +18,9 @@ services:
     ports:
       - "7081:7081"
       - "8081:8081"
+    networks:
+      testnet:
+        ipv4_address: 172.25.25.12
     links:
       - zipper
 
@@ -27,5 +33,16 @@ services:
     ports:
       - "7000:7000"
       - "8000:8000"
+    networks:
+      testnet:
+        ipv4_address: 172.25.25.13
     links:
       - go-carbon
+
+networks:
+  testnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.25.25.0/24
